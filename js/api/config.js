@@ -8,7 +8,7 @@ var APIConfig = (function () {
 
   var config = {
     endpoint: '/api/hackclub',      // Hack Club AI
-    model: 'gpt-4o-mini',
+    model: 'gemini-2.5-flash',
     maxTokens: 1024,
     temperature: 0.7,
     topP: 1,

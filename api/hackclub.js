@@ -1,7 +1,7 @@
 // Vercel serverless function — proxies requests to Hack Club AI API
 // Keeps the API key server-side so it never reaches the browser.
 
-const UPSTREAM = 'https://ai.hackclub.com/chat/completions';
+const UPSTREAM = 'https://ai.hackclub.com/proxy/v1/chat/completions';
 
 module.exports = async function handler(req, res) {
   // CORS
@@ -35,7 +35,7 @@ module.exports = async function handler(req, res) {
   // Build upstream request body
   const body = {
     messages,
-    model: model || 'gpt-4o-mini',
+    model: model || 'gemini-2.5-flash',
     max_tokens: Math.min(max_tokens || 1024, 4096),
     temperature: temperature != null ? temperature : 0.7
   };

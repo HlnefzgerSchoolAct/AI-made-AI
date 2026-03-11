@@ -532,6 +532,37 @@ var SRS = (function () {
     return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
 
+  /**
+   * Pre-seed deck with Unidad 2A1 vocabulary cards (if not already seeded).
+   * Call this on first load to ensure all 27 terms are available as flashcards.
+   */
+  function seedUnidad2A1() {
+    if (typeof Dictionary === 'undefined') return;
+    var unitWords = Dictionary.getCategory('unidad2a1');
+    if (!unitWords || unitWords.length === 0) return;
+
+    var seeded = false;
+    for (var i = 0; i < unitWords.length; i++) {
+      var entry = unitWords[i];
+      // Add ES→EN card
+      var card1 = addCard(
+        CARD_TYPES.VOCABULARY,
+        '¿Qué significa "' + entry.es + '"?',
+        entry.en + (entry.pronunciation ? ' (' + entry.pronunciation + ')' : ''),
+        { english: entry.en, spanish: entry.es, category: 'unidad2a1', direction: 'es_to_en' }
+      );
+      // Add EN→ES card
+      var card2 = addCard(
+        CARD_TYPES.VOCABULARY,
+        'What is "' + entry.en + '" in Spanish?',
+        entry.es + (entry.pronunciation ? ' (' + entry.pronunciation + ')' : ''),
+        { english: entry.en, spanish: entry.es, category: 'unidad2a1', direction: 'en_to_es' }
+      );
+      if (card1 || card2) seeded = true;
+    }
+    if (seeded) save();
+  }
+
   // ── Public API ─────────────────────────────────────────────
   return {
     CARD_TYPES: CARD_TYPES,
@@ -558,6 +589,7 @@ var SRS = (function () {
     showSessionAnswer: showSessionAnswer,
     rateSessionCard: rateSessionCard,
     isSessionActive: isSessionActive,
-    cancelSession: cancelSession
+    cancelSession: cancelSession,
+    seedUnidad2A1: seedUnidad2A1
   };
 })();

@@ -10,7 +10,10 @@
     Intents.init();
     Progress.load();
     if (typeof LearningPaths !== 'undefined') LearningPaths.load();
-    if (typeof SRS !== 'undefined') SRS.load();
+    if (typeof SRS !== 'undefined') {
+      SRS.load();
+      SRS.seedUnidad2A1();
+    }
     if (typeof Context !== 'undefined') Context.reset();
 
     // 2. Initialize conversation engine
@@ -44,17 +47,16 @@
   }
 
   function showWelcome() {
-    var welcomeHTML = '<strong>¡Bienvenido! Welcome to Spanish class!</strong> 🎓🇪🇸\n\n' +
-      'I\'m <strong>Profesor</strong> — your personal AI Spanish tutor. I can help you with:\n\n' +
-      '• 🔤 <strong>Translations</strong> — "How do you say dog in Spanish?"\n' +
-      '• 📖 <strong>Conjugations</strong> — "Conjugate hablar in present tense"\n' +
-      '• 📝 <strong>Grammar</strong> — "Explain ser vs estar"\n' +
-      '• 📋 <strong>Vocabulary</strong> — "Teach me food vocabulary"\n' +
-      '• 🧠 <strong>Quizzes</strong> — "Quiz me on colors"\n' +
-      '• 💬 <strong>Phrases</strong> — "Restaurant phrases"\n' +
-      '• 📚 <strong>Learning Path</strong> — "Show my learning path"\n' +
-      '• 🃏 <strong>Flashcards</strong> — "Review flashcards"\n\n' +
-      'Type anything below or use the sidebar to browse topics. ¡Vamos a aprender!';
+    var welcomeHTML = '<strong>¡Bienvenido a 3rd Hour Spanish!</strong> 🇪🇸\n\n' +
+      'I\'m your study assistant for <strong>Unidad 2A1 — La rutina diaria</strong> (¡Qué Chévere! Level 2).\n\n' +
+      'Here\'s what you can do:\n\n' +
+      '• 🧠 <strong>"Quiz me"</strong> — Test your Unidad 2A1 vocabulary\n' +
+      '• 📋 <strong>"Vocab list"</strong> — See all 27 unit words\n' +
+      '• 📝 <strong>"Reflexive verbs"</strong> — Learn the grammar\n' +
+      '• 💬 <strong>"Practice conversation"</strong> — Daily routine dialogue\n' +
+      '• 🃏 <strong>"Flashcards"</strong> — Spaced repetition review\n' +
+      '• 📚 <strong>"Learning path"</strong> — Track your lesson progress\n\n' +
+      'Type below or use the sidebar to get started. ¡Vamos a estudiar! 💪';
 
     ChatUI.addMessage('bot', welcomeHTML.replace(/\n/g, '<br>'));
 

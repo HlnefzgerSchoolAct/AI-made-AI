@@ -56,71 +56,40 @@ var SidebarUI = (function () {
 
     var sections = [
       {
-        title: '📚 Vocabulary',
+        title: '� Unidad 2A1 Vocabulary',
         items: [
-          { label: 'Food & Drink', action: 'teach me food vocabulary' },
-          { label: 'Colors', action: 'teach me colors' },
-          { label: 'Numbers', action: 'teach me numbers' },
-          { label: 'Animals', action: 'teach me animal words' },
-          { label: 'Family', action: 'teach me family vocabulary' },
-          { label: 'Body Parts', action: 'teach me body vocabulary' },
-          { label: 'Clothing', action: 'teach me clothing vocabulary' },
-          { label: 'Weather', action: 'teach me weather words' },
-          { label: 'Emotions', action: 'teach me emotions vocabulary' }
+          { label: 'All Unit Vocab', action: 'teach me unidad 2a1 vocabulary' },
+          { label: 'Bathroom Items', action: 'teach me bathroom vocab' },
+          { label: 'Daily Routine Verbs', action: 'teach me daily routine vocabulary' },
+          { label: 'Word of the Day', action: 'word of the day' }
         ]
       },
       {
-        title: '📖 Grammar',
+        title: '📖 Reflexive Verbs',
         items: [
-          { label: 'Ser vs Estar', action: 'explain ser vs estar' },
-          { label: 'Por vs Para', action: 'explain por vs para' },
-          { label: 'Gender & Articles', action: 'explain gender in spanish' },
-          { label: 'Adjectives', action: 'explain adjectives' },
-          { label: 'Pronouns', action: 'explain pronouns' },
-          { label: 'Subjunctive', action: 'explain subjunctive' },
-          { label: 'Preterite vs Imperfect', action: 'explain preterite vs imperfect' }
-        ]
-      },
-      {
-        title: '🔄 Conjugation',
-        items: [
-          { label: 'Ser (to be)', action: 'conjugate ser' },
-          { label: 'Estar (to be)', action: 'conjugate estar' },
-          { label: 'Tener (to have)', action: 'conjugate tener' },
-          { label: 'Ir (to go)', action: 'conjugate ir' },
-          { label: 'Hacer (to do)', action: 'conjugate hacer' },
-          { label: 'Hablar (to speak)', action: 'conjugate hablar' }
-        ]
-      },
-      {
-        title: '💬 Phrases',
-        items: [
-          { label: 'Restaurant', action: 'restaurant phrases' },
-          { label: 'Shopping', action: 'shopping phrases' },
-          { label: 'Directions', action: 'direction phrases' },
-          { label: 'Hotel', action: 'hotel phrases' },
-          { label: 'Emergency', action: 'emergency phrases' },
-          { label: 'Travel', action: 'travel phrases' }
+          { label: 'Reflexive Verb Rules', action: 'explain reflexive verbs' },
+          { label: 'Stem Changes (e→ie, e→i)', action: 'explain stem changing reflexives' },
+          { label: 'Pronoun Placement', action: 'explain reflexive pronoun placement' },
+          { label: 'Conjugate despertarse', action: 'conjugate despertarse' },
+          { label: 'Conjugate vestirse', action: 'conjugate vestirse' }
         ]
       },
       {
         title: '🎯 Practice',
         items: [
-          { label: '🧠 Start a Quiz', action: 'quiz me' },
-          { label: '💬 Practice Dialogue', action: 'practice conversation' },
-          { label: '🌟 Word of the Day', action: 'word of the day' },
-          { label: '🌎 Cultural Facts', action: 'tell me about spanish culture' },
-          { label: '🔤 Alphabet & Sounds', action: 'teach me the spanish alphabet' },
-          { label: '🗣️ Learn an Idiom', action: 'teach me an idiom' },
-          { label: '🏆 Daily Challenge', action: 'daily challenge' }
+          { label: '🧠 Quiz Me (2A1)', action: 'quiz me' },
+          { label: '💬 Practice Conversation', action: 'practice conversation' },
+          { label: '🃏 Flashcard Review', action: 'review flashcards' },
+          { label: '🏆 Daily Challenge', action: 'daily challenge' },
+          { label: '✏️ Check My Spanish', action: 'correct my spanish' }
         ]
       },
       {
         title: '📚 Learning',
         items: [
-          { label: '📚 My Learning Path', action: 'learning path' },
-          { label: '🃏 Review Flashcards', action: 'review flashcards' },
-          { label: '🔍 Analyze a Sentence', action: 'analyze my spanish' }
+          { label: '📚 My Lesson Progress', action: 'learning path' },
+          { label: '🔍 Analyze a Sentence', action: 'analyze my spanish' },
+          { label: '❓ Help', action: 'help' }
         ]
       }
     ];

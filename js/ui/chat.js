@@ -70,7 +70,7 @@ var ChatUI = (function () {
 
     var avatar = document.createElement('div');
     avatar.className = 'message-avatar';
-    avatar.textContent = role === 'bot' ? '🎓' : '🧑‍🎓';
+    avatar.textContent = role === 'bot' ? '�🇸' : '🧑‍🎓';
 
     var bubble = document.createElement('div');
     bubble.className = 'message-bubble';
@@ -100,7 +100,7 @@ var ChatUI = (function () {
     var el = document.createElement('div');
     el.className = 'message message-bot typing-indicator';
     el.id = 'typing-indicator';
-    el.innerHTML = '<div class="message-avatar">🎓</div><div class="message-bubble"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>';
+    el.innerHTML = '<div class="message-avatar">�🇸</div><div class="message-bubble"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>';
     elements.container.appendChild(el);
     scrollToBottom();
   }

@@ -76,7 +76,9 @@ var Intents = (function () {
         'subject pronouns', 'object pronouns', 'reflexive verbs',
         'subjunctive', 'negation', 'question words', 'prepositions',
         'preterite vs imperfect', 'grammar topic', 'grammar lesson',
-        'can you explain', 'how to use', 'rule for'
+        'can you explain', 'how to use', 'rule for',
+        'reflexive pronouns', 'stem changing', 'stem change',
+        'reflexive verb rules', 'how do reflexive verbs work'
       ],
       context: null
     },
@@ -92,7 +94,11 @@ var Intents = (function () {
         'teach me food words', 'teach me colors', 'teach me numbers',
         'teach me animals', 'teach me body parts', 'teach me family',
         'teach me clothing', 'word category', 'vocabulary category',
-        'what are the spanish words for', 'give me vocabulary'
+        'what are the spanish words for', 'give me vocabulary',
+        'vocab list', 'show vocab', 'unit vocab', 'unidad 2a1',
+        '2a1 vocabulary', 'unit vocabulary', 'current vocab',
+        'daily routine vocab', 'routine vocabulary', 'bathroom vocab',
+        'reflexive verb vocabulary'
       ],
       context: null
     },
@@ -199,7 +205,9 @@ var Intents = (function () {
         'practice speaking', 'have a conversation',
         'dialogue practice', 'talk to me in spanish',
         'let\'s practice talking', 'spanish conversation',
-        'practice dialogue'
+        'practice dialogue', 'practice daily routine',
+        'practice routine', 'morning routine',
+        'describe my routine', 'daily routine practice'
       ],
       context: null
     },

@@ -81,17 +81,23 @@ var Quiz = (function () {
   }
 
   function generateConjugationQuestions(count) {
-    var verbs = Conjugation.getIrregularVerbs().concat(['hablar', 'comer', 'vivir', 'trabajar', 'estudiar', 'escribir']);
-    var tenses = ['present', 'preterite', 'future'];
+    // Focus on Unidad 2A1 reflexive verbs
+    var reflexiveVerbs = ['bañarse', 'cepillarse', 'despertarse', 'ducharse', 'lavarse', 'levantarse', 'maquillarse', 'peinarse', 'ponerse', 'quitarse', 'vestirse'];
+    var tenses = ['present'];
     var pronouns = ['yo', 'tú', 'él/ella/usted', 'nosotros', 'ellos/ellas/ustedes'];
     var pronounIndex = { 'yo': 0, 'tú': 1, 'él/ella/usted': 2, 'nosotros': 3, 'ellos/ellas/ustedes': 5 };
     var questions = [];
 
     for (var i = 0; i < count; i++) {
-      var verb = pick(verbs);
+      var verb = pick(reflexiveVerbs);
       var tense = pick(tenses);
       var pronoun = pick(pronouns);
-      var result = Conjugation.conjugate(verb, tense);
+      var result = typeof Conjugation !== 'undefined' ? Conjugation.conjugateReflexive(verb, tense) : null;
+      if (!result || !result.conjugations) {
+        // Fallback to non-reflexive
+        var base = verb.replace(/se$/, '');
+        result = Conjugation.conjugate(base, tense);
+      }
       if (!result || !result.conjugations) continue;
       var correctForm = result.conjugations[pronounIndex[pronoun]] ? result.conjugations[pronounIndex[pronoun]].form : null;
       if (!correctForm) continue;
@@ -109,7 +115,9 @@ var Quiz = (function () {
   // ---- Quiz control ----
 
   function start(category) {
-    var type = Math.random() < 0.7 ? 'vocab' : 'conjugation';
+    // Default to Unidad 2A1 vocabulary
+    if (!category) category = 'unidad2a1';
+    var type = Math.random() < 0.6 ? 'vocab' : 'conjugation';
     var questions;
     var totalQ = 5;
 

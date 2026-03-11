@@ -13,10 +13,10 @@ var Responses = (function () {
   // ---- Static response pools per intent ----
   var static_responses = {
     greeting: [
-      '¡Hola! Welcome to Spanish class! 🎓 I\'m your Profesor. How can I help you learn today?',
-      '¡Buenos días! Great to see you! Ready to learn some Spanish? Ask me to translate a word, explain grammar, quiz you, or anything else!',
-      '¡Bienvenido! Hello there! I\'m Profesor — your personal Spanish teacher. What would you like to learn today?',
-      '¡Hola, estudiante! Welcome! You can ask me to translate words, conjugate verbs, explain grammar, give you a quiz, or teach you useful phrases. ¿Qué te gustaría aprender?'
+      '¡Hola! Welcome to 3rd Hour Spanish! 🇪🇸 Ready to practice your Unidad 2A1 vocabulary?',
+      '¡Buenos días! Great to see you! Let\'s work on your daily routine vocabulary and reflexive verbs! 🇪🇸',
+      '¡Bienvenido a 3rd Hour Spanish! Want to quiz on Unidad 2A1, practice reflexive verbs, or review flashcards?',
+      '¡Hola, estudiante! Welcome to 3rd Hour Spanish! We\'re focused on Unidad 2A1 — la rutina diaria. ¿Qué te gustaría practicar?'
     ],
 
     farewell: [
@@ -27,12 +27,12 @@ var Responses = (function () {
     ],
 
     about_self: [
-      'I\'m <strong>Profesor</strong> — your personal Spanish language tutor! 🎓 I run entirely in your browser, no internet needed. I can:\n\n• <strong>Translate</strong> words between English and Spanish\n• <strong>Conjugate</strong> verbs in 6 tenses\n• <strong>Explain grammar</strong> rules (ser vs estar, por vs para, and more)\n• <strong>Teach vocabulary</strong> by category (food, colors, animals, etc.)\n• <strong>Quiz</strong> you with interactive practice\n• <strong>Share phrases</strong> for real-life situations\n• Track your <strong>progress</strong>\n\nJust ask me anything about Spanish! 🇪🇸',
-      'I\'m your AI Spanish professor! 🎓 I know 500+ vocabulary words, can conjugate verbs (including 30+ irregular ones), explain grammar rules, and quiz you on what you\'ve learned. Everything runs right here in your browser — no internet required!\n\n¿En qué puedo ayudarte? (How can I help you?)'
+      'I\'m your <strong>3rd Hour Spanish</strong> study assistant! 🇪🇸 I\'m focused on helping you master <strong>Unidad 2A1 — La rutina diaria</strong> from ¡Qué Chévere! Level 2. I can:\n\n• <strong>Quiz</strong> you on all 27 Unidad 2A1 vocabulary words\n• <strong>Explain reflexive verbs</strong> and stem changes (despertarse, vestirse)\n• <strong>Practice conversations</strong> about daily routines\n• <strong>Conjugate</strong> reflexive verbs with pronoun placement\n• <strong>Flashcard review</strong> with spaced repetition\n• Track your <strong>progress</strong>\n\n¡Vamos a estudiar! 🇪🇸',
+      'I\'m the study tool for <strong>3rd Hour Spanish</strong>! 🇪🇸 Right now we\'re working on Unidad 2A1 — daily routines, reflexive verbs, and bathroom vocabulary from ¡Qué Chévere! Level 2. I can quiz you, explain grammar, practice conversations, and track your progress.\n\n¿En qué puedo ayudarte? (How can I help you?)'
     ],
 
     help: [
-      'Here\'s everything I can help you with! 📚\n\n<div class="help-grid"><div class="help-item">🔤 <strong>"How do you say dog in Spanish?"</strong> — Translate words</div><div class="help-item">📖 <strong>"Conjugate hablar in present tense"</strong> — Verb conjugation</div><div class="help-item">📝 <strong>"Explain ser vs estar"</strong> — Grammar rules</div><div class="help-item">📋 <strong>"Teach me food vocabulary"</strong> — Word categories</div><div class="help-item">🧠 <strong>"Quiz me on colors"</strong> — Interactive quizzes</div><div class="help-item">💬 <strong>"Restaurant phrases"</strong> — Situational phrases</div><div class="help-item">🎯 <strong>"Word of the day"</strong> — Daily vocabulary</div><div class="help-item">🔊 <strong>"How to pronounce hola"</strong> — Pronunciation guide</div><div class="help-item">🌎 <strong>"Tell me about Spanish culture"</strong> — Cultural facts</div><div class="help-item">✏️ <strong>"Is this correct: yo soy feliz"</strong> — Check your Spanish</div></div>\n\nYou can also use the quick buttons below the chat, or browse topics in the sidebar! ¿Qué te gustaría hacer?'
+      'Here\'s what I can help you with for <strong>Unidad 2A1</strong>! 🇪🇸\n\n<div class="help-grid"><div class="help-item">🧠 <strong>"Quiz me"</strong> — Quiz on Unidad 2A1 vocab</div><div class="help-item">📋 <strong>"Vocab list"</strong> — See all 27 unit words</div><div class="help-item">📝 <strong>"Reflexive verbs"</strong> — Grammar explanation</div><div class="help-item">💬 <strong>"Practice conversation"</strong> — Daily routine dialogue</div><div class="help-item">🃏 <strong>"Flashcards"</strong> — Spaced repetition review</div><div class="help-item">🔤 <strong>"How do you say comb in Spanish?"</strong> — Translate words</div><div class="help-item">📖 <strong>"Conjugate vestirse"</strong> — Reflexive conjugation</div><div class="help-item">🔊 <strong>"How to pronounce cepillarse"</strong> — Pronunciation help</div><div class="help-item">✏️ <strong>"Is this correct: me despierto a las siete"</strong> — Check your Spanish</div><div class="help-item">📚 <strong>"Learning path"</strong> — See your lesson progress</div></div>\n\nUse the quick buttons below the chat, or browse topics in the sidebar! ¿Qué quieres practicar?'
     ],
 
     thanks: [
@@ -499,19 +499,17 @@ var Responses = (function () {
 
   function generateLessonSuggestion() {
     var topics = [
-      { name: 'Basic Greetings', desc: 'Learn to say hello, goodbye, and introduce yourself' },
-      { name: 'Numbers 1-20', desc: 'Count in Spanish and learn number vocabulary' },
-      { name: 'Colors', desc: 'Learn all the color words with examples' },
-      { name: 'Food & Drink', desc: 'Essential vocabulary for eating and ordering' },
-      { name: 'Family Members', desc: 'Words for all your family relationships' },
-      { name: 'Present Tense', desc: 'Learn to conjugate verbs in present tense' },
-      { name: 'Ser vs. Estar', desc: 'The most important grammar rule in Spanish' },
-      { name: 'Useful Phrases', desc: 'Survival phrases for real situations' },
-      { name: 'Animals', desc: 'Learn animal vocabulary in Spanish' },
-      { name: 'Body Parts', desc: 'Head, shoulders, knees, and toes — in Spanish!' }
+      { name: 'Unidad 2A1 Vocabulary', desc: 'Learn all 27 daily routine and bathroom words' },
+      { name: 'Reflexive Verbs', desc: 'Master reflexive pronouns and conjugation' },
+      { name: 'Stem-Changing Reflexives', desc: 'Practice despertarse (e→ie) and vestirse (e→i)' },
+      { name: 'Daily Routine Practice', desc: 'Describe your morning routine in Spanish' },
+      { name: 'Bathroom Vocabulary', desc: 'Learn el jabón, la toalla, el espejo, and more' },
+      { name: 'Pronoun Placement', desc: 'Where do reflexive pronouns go? Before verb vs attached' },
+      { name: 'Vocabulary Quiz', desc: 'Test yourself on Unidad 2A1 words' },
+      { name: 'Flashcard Review', desc: 'Spaced repetition review of your vocab cards' }
     ];
 
-    var html = '📚 <strong>Here are some lessons to get you started:</strong>\n\n<div class="lesson-list">';
+    var html = '📚 <strong>Unidad 2A1 — La rutina diaria:</strong>\n\n<div class="lesson-list">';
     for (var i = 0; i < topics.length; i++) {
       html += '<div class="lesson-item">';
       html += '<strong>' + (i + 1) + '. ' + topics[i].name + '</strong>';
@@ -519,43 +517,43 @@ var Responses = (function () {
       html += '</div>';
     }
     html += '</div>';
-    html += '\n\nJust ask about any of these! For example: <em>"Teach me colors"</em> or <em>"Explain ser vs estar"</em>';
+    html += '\n\nJust ask about any of these! For example: <em>"Teach me reflexive verbs"</em> or <em>"Quiz me on 2A1"</em>';
     return html;
   }
 
   function generatePracticeConversation() {
     var dialogues = [
       {
-        title: 'Meeting Someone New',
+        title: 'La rutina de la mañana (Morning Routine)',
         lines: [
-          { speaker: '🧑', es: '¡Hola! ¿Cómo te llamas?', en: 'Hi! What\'s your name?' },
-          { speaker: '👩', es: 'Me llamo Sofía. ¿Y tú?', en: 'My name is Sofía. And you?' },
-          { speaker: '🧑', es: 'Me llamo Carlos. Mucho gusto.', en: 'My name is Carlos. Nice to meet you.' },
-          { speaker: '👩', es: '¡Mucho gusto! ¿De dónde eres?', en: 'Nice to meet you! Where are you from?' },
-          { speaker: '🧑', es: 'Soy de México. ¿Y tú?', en: 'I\'m from Mexico. And you?' },
-          { speaker: '👩', es: 'Soy de España. ¡Bienvenido!', en: 'I\'m from Spain. Welcome!' }
+          { speaker: '🧑', es: '¿A qué hora te despiertas?', en: 'What time do you wake up?' },
+          { speaker: '👩', es: 'Me despierto a las siete.', en: 'I wake up at seven.' },
+          { speaker: '🧑', es: '¿Qué haces después?', en: 'What do you do after?' },
+          { speaker: '👩', es: 'Me ducho y me lavo el pelo con champú.', en: 'I shower and wash my hair with shampoo.' },
+          { speaker: '🧑', es: '¿Y luego?', en: 'And then?' },
+          { speaker: '👩', es: 'Me cepillo los dientes, me peino y me visto.', en: 'I brush my teeth, comb my hair, and get dressed.' }
         ]
       },
       {
-        title: 'At a Café',
+        title: 'En el baño (In the Bathroom)',
         lines: [
-          { speaker: '👩‍🍳', es: 'Buenos días. ¿Qué desea?', en: 'Good morning. What would you like?' },
-          { speaker: '🧑', es: 'Un café con leche, por favor.', en: 'A coffee with milk, please.' },
-          { speaker: '👩‍🍳', es: '¿Algo más?', en: 'Anything else?' },
-          { speaker: '🧑', es: 'Sí, un croissant también.', en: 'Yes, a croissant too.' },
-          { speaker: '👩‍🍳', es: 'Muy bien. Son tres euros.', en: 'Very well. That\'s three euros.' },
-          { speaker: '🧑', es: 'Aquí tiene. Gracias.', en: 'Here you go. Thank you.' }
+          { speaker: '🧑', es: '¿Dónde está el jabón?', en: 'Where is the soap?' },
+          { speaker: '👩', es: 'Está al lado del lavabo.', en: 'It\'s next to the sink.' },
+          { speaker: '🧑', es: '¿Y la toalla?', en: 'And the towel?' },
+          { speaker: '👩', es: 'Hay una toalla limpia en la ducha.', en: 'There\'s a clean towel in the shower.' },
+          { speaker: '🧑', es: 'Necesito el peine también.', en: 'I need the comb too.' },
+          { speaker: '👩', es: 'El peine está delante del espejo.', en: 'The comb is in front of the mirror.' }
         ]
       },
       {
-        title: 'Asking for Directions',
+        title: 'Describiendo tu rutina (Describing Your Routine)',
         lines: [
-          { speaker: '🧑', es: 'Perdón, ¿dónde está el museo?', en: 'Excuse me, where is the museum?' },
-          { speaker: '👩', es: 'Siga derecho dos cuadras.', en: 'Go straight two blocks.' },
-          { speaker: '🧑', es: '¿Está lejos?', en: 'Is it far?' },
-          { speaker: '👩', es: 'No, está muy cerca. Cinco minutos.', en: 'No, it\'s very close. Five minutes.' },
-          { speaker: '🧑', es: '¡Muchas gracias!', en: 'Thank you very much!' },
-          { speaker: '👩', es: 'De nada. ¡Que lo disfrute!', en: 'You\'re welcome. Enjoy it!' }
+          { speaker: '🧑', es: '¿Cómo es tu rutina diaria?', en: 'What is your daily routine like?' },
+          { speaker: '👩', es: 'Primero me levanto y me baño en la tina.', en: 'First I get up and bathe in the bathtub.' },
+          { speaker: '🧑', es: '¿Te maquillas por la mañana?', en: 'Do you put on makeup in the morning?' },
+          { speaker: '👩', es: 'Sí, me maquillo y me pongo la ropa.', en: 'Yes, I put on makeup and put on my clothes.' },
+          { speaker: '🧑', es: '¿A qué hora te levantas?', en: 'What time do you get up?' },
+          { speaker: '👩', es: 'Me levanto tarde los fines de semana.', en: 'I get up late on weekends.' }
         ]
       }
     ];
@@ -663,13 +661,13 @@ var Responses = (function () {
       return 'It looks like you typed <strong class="spanish-text">"' + entry.es + '"</strong> — that means <strong>"' + entry.en + '"</strong> in English!' +
         (entry.pronunciation ? ' (🔊 ' + entry.pronunciation + ')' : '') +
         (entry.example ? '\n\n<em>Example: <span class="spanish-text">' + entry.example + '</span></em>' : '') +
-        '\n\n💡 <em>Want to learn more? Try asking me to translate a word, quiz you, or explain grammar!</em>';
+        '\n\n💡 <em>Want to practice more Unidad 2A1 vocab? Try "quiz me" or "vocab list"!</em>';
     }
 
     var fallbacks = [
-      'Hmm, I\'m not quite sure what you mean. Here are some things you can ask me:\n\n• <strong>"How do you say [word] in Spanish?"</strong>\n• <strong>"Conjugate hablar"</strong>\n• <strong>"Explain ser vs estar"</strong>\n• <strong>"Quiz me"</strong>\n• <strong>"Teach me food vocabulary"</strong>\n\nOr type <strong>"help"</strong> for the full list! 🎓',
-      'I didn\'t quite catch that! As your Spanish professor, I can help you with translations, conjugations, grammar, vocabulary, quizzes, and phrases. Try asking me something specific! 🇪🇸',
-      '¡Perdón! I\'m not sure how to help with that. Remember, I\'m specialized in teaching Spanish! Try:\n\n• <strong>"Translate [word]"</strong>\n• <strong>"Grammar tip"</strong>\n• <strong>"Quiz me"</strong>\n• <strong>"Useful phrases"</strong>'
+      'Hmm, I\'m not quite sure what you mean. Here are things you can do in <strong>3rd Hour Spanish</strong>:\n\n• <strong>"Quiz me"</strong> — Unidad 2A1 vocabulary quiz\n• <strong>"Vocab list"</strong> — See all unit words\n• <strong>"Reflexive verbs"</strong> — Grammar explanation\n• <strong>"Practice conversation"</strong> — Daily routine dialogue\n• <strong>"Flashcards"</strong> — Review your cards\n\nOr type <strong>"help"</strong> for the full list! 🇪🇸',
+      'I didn\'t quite catch that! I\'m here to help you with Unidad 2A1 — daily routines, reflexive verbs, and bathroom vocabulary. Try asking me something specific! 🇪🇸',
+      '¡Perdón! Try one of these:\n\n• <strong>"Quiz me on 2A1"</strong>\n• <strong>"How do you say towel in Spanish?"</strong>\n• <strong>"Explain reflexive verbs"</strong>\n• <strong>"Practice daily routine"</strong>'
     ];
     return pick(fallbacks);
   }

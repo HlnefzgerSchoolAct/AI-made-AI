@@ -8,7 +8,7 @@ var Conversation = (function () {
   var STORAGE_KEY = 'profesor_conversation';
 
   var state = {
-    difficulty: 'beginner',       // beginner | intermediate | advanced
+    difficulty: 'intermediate',    // beginner | intermediate | advanced
     currentTopic: null,           // e.g. 'food', 'ser_estar'
     currentLesson: null,          // lesson type in progress
     lastIntent: null,
@@ -113,7 +113,7 @@ var Conversation = (function () {
     // ── Quiz start (keep local interactive quiz engine) ──
     if (/\bquiz\b/i.test(text) && typeof Quiz !== 'undefined') {
       var entities = typeof Entities !== 'undefined' ? Entities.extract(text) : {};
-      var category = entities.category || state.currentTopic || null;
+      var category = entities.category || state.currentTopic || 'unidad2a1';
       var quizResp = Quiz.start(category);
       state.quizActive = true;
       _trackTurn(text, 'quiz_start', entities, quizResp);

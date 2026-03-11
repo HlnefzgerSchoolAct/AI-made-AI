@@ -1094,6 +1094,36 @@ var Dictionary = (function () {
       { en: 'respect', es: 'respeto', pronunciation: 'rehs-PEH-toh', example: 'El respeto es fundamental.' },
       { en: 'to forgive', es: 'perdonar', pronunciation: 'pehr-doh-NAR', example: 'Es importante saber perdonar.' },
       { en: 'to argue', es: 'discutir', pronunciation: 'dees-koo-TEER', example: 'No quiero discutir contigo.' }
+    ],
+
+    unidad2a1: [
+      { en: 'to bathe', es: 'bañarse', pronunciation: 'bah-NYAR-seh', example: 'Me baño por la noche.', stemChange: null, reflexive: true },
+      { en: 'to brush', es: 'cepillarse', pronunciation: 'seh-pee-YAR-seh', example: 'Me cepillo los dientes después de comer.', stemChange: null, reflexive: true },
+      { en: 'brush', es: 'el cepillo', pronunciation: 'seh-PEE-yoh', example: 'Necesito un cepillo nuevo.' },
+      { en: 'shampoo', es: 'el champú', pronunciation: 'cham-POO', example: 'El champú huele a flores.' },
+      { en: 'shaving cream', es: 'la crema de afeitar', pronunciation: 'KREH-mah deh ah-fay-TAR', example: 'Necesito la crema de afeitar.' },
+      { en: 'deodorant', es: 'el desodorante', pronunciation: 'deh-soh-doh-RAHN-teh', example: 'No olvides el desodorante.' },
+      { en: 'to wake up', es: 'despertarse', pronunciation: 'dehs-pehr-TAR-seh', example: 'Me despierto a las seis.', stemChange: 'e:ie', reflexive: true },
+      { en: 'shower', es: 'la ducha', pronunciation: 'DOO-chah', example: 'La ducha está en el baño.' },
+      { en: 'to shower', es: 'ducharse', pronunciation: 'doo-CHAR-seh', example: 'Me ducho todas las mañanas.', stemChange: null, reflexive: true },
+      { en: 'mirror', es: 'el espejo', pronunciation: 'ehs-PEH-hoh', example: 'Me miro en el espejo.' },
+      { en: 'faucet', es: 'el grifo', pronunciation: 'GREE-foh', example: 'Cierra el grifo, por favor.' },
+      { en: 'toilet', es: 'el inodoro', pronunciation: 'ee-noh-DOH-roh', example: 'El inodoro está limpio.' },
+      { en: 'soap', es: 'el jabón', pronunciation: 'hah-BOHN', example: 'Lávate las manos con jabón.' },
+      { en: 'sink', es: 'el lavabo', pronunciation: 'lah-BAH-boh', example: 'El lavabo está al lado de la ducha.' },
+      { en: 'to wash', es: 'lavarse', pronunciation: 'lah-BAR-seh', example: 'Me lavo las manos antes de comer.', stemChange: null, reflexive: true },
+      { en: 'to get up', es: 'levantarse', pronunciation: 'leh-bahn-TAR-seh', example: 'Me levanto temprano los lunes.', stemChange: null, reflexive: true },
+      { en: 'makeup', es: 'el maquillaje', pronunciation: 'mah-kee-YAH-heh', example: 'Se pone el maquillaje por la mañana.' },
+      { en: 'to put on makeup', es: 'maquillarse', pronunciation: 'mah-kee-YAR-seh', example: 'Mi hermana se maquilla todos los días.', stemChange: null, reflexive: true },
+      { en: 'to comb', es: 'peinarse', pronunciation: 'pay-NAR-seh', example: 'Me peino el pelo antes de salir.', stemChange: null, reflexive: true },
+      { en: 'comb', es: 'el peine', pronunciation: 'PAY-neh', example: '¿Dónde está mi peine?' },
+      { en: 'hair', es: 'el pelo', pronunciation: 'PEH-loh', example: 'Me lavo el pelo con champú.' },
+      { en: 'to put on', es: 'ponerse', pronunciation: 'poh-NEHR-seh', example: 'Me pongo la chaqueta porque hace frío.', stemChange: null, reflexive: true },
+      { en: 'to take off', es: 'quitarse', pronunciation: 'kee-TAR-seh', example: 'Me quito los zapatos al llegar a casa.', stemChange: null, reflexive: true },
+      { en: 'late', es: 'tarde', pronunciation: 'TAR-deh', example: '¡Es tarde! Tengo que levantarme.' },
+      { en: 'bathtub', es: 'la tina', pronunciation: 'TEE-nah', example: 'Me baño en la tina.' },
+      { en: 'towel', es: 'la toalla', pronunciation: 'toh-AH-yah', example: 'Necesito una toalla limpia.' },
+      { en: 'to get dressed', es: 'vestirse', pronunciation: 'vehs-TEER-seh', example: 'Me visto rápido por la mañana.', stemChange: 'e:i', reflexive: true }
     ]
   };
 
@@ -1182,7 +1212,11 @@ var Dictionary = (function () {
       'ecology': 'environment', 'nature': 'environment', 'green': 'environment',
       'love': 'relationships', 'family': 'family', 'romance': 'relationships',
       'home furnishing': 'furniture', 'furnishing': 'furniture',
-      'bed': 'furniture', 'chair': 'furniture'
+      'bed': 'furniture', 'chair': 'furniture',
+      '2a1': 'unidad2a1', 'unidad 2a1': 'unidad2a1', 'unit 2a1': 'unidad2a1',
+      'daily routine': 'unidad2a1', 'la rutina diaria': 'unidad2a1', 'rutina': 'unidad2a1',
+      'routine': 'unidad2a1', 'bathroom': 'unidad2a1', 'reflexive': 'unidad2a1',
+      'current unit': 'unidad2a1', 'current vocab': 'unidad2a1'
     };
     key = aliases[key] || key;
     return data[key] || null;

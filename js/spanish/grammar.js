@@ -196,8 +196,8 @@ var Grammar = (function () {
     },
 
     'reflexive': {
-      title: 'Reflexive Verbs',
-      explanation: 'Reflexive verbs indicate that the subject performs the action on itself. They use reflexive pronouns.',
+      title: 'Reflexive Verbs — Unidad 2A1',
+      explanation: 'Reflexive verbs indicate that the subject performs the action on itself. In Unidad 2A1, we focus on daily routine reflexive verbs (la rutina diaria).',
       sections: [
         {
           heading: 'Reflexive Pronouns:',
@@ -211,14 +211,36 @@ var Grammar = (function () {
           ]
         },
         {
-          heading: 'Common Reflexive Verbs:',
+          heading: 'Unidad 2A1 Reflexive Verbs (La rutina diaria):',
           points: [
-            '<span class="spanish-text">levantarse</span> — to get up: <span class="spanish-text"><strong>Me levanto</strong> a las siete.</span> (I get up at seven.)',
+            '<span class="spanish-text">bañarse</span> — to bathe oneself: <span class="spanish-text"><strong>Me baño</strong> por la noche.</span> (I bathe at night.)',
+            '<span class="spanish-text">cepillarse</span> — to brush (hair/teeth): <span class="spanish-text"><strong>Me cepillo</strong> los dientes.</span> (I brush my teeth.)',
+            '<span class="spanish-text">despertarse</span> (e→ie) — to wake up: <span class="spanish-text"><strong>Me despierto</strong> a las siete.</span> (I wake up at seven.)',
             '<span class="spanish-text">ducharse</span> — to shower: <span class="spanish-text"><strong>Me ducho</strong> por la mañana.</span> (I shower in the morning.)',
-            '<span class="spanish-text">vestirse</span> — to get dressed: <span class="spanish-text"><strong>Me visto</strong> rápido.</span> (I get dressed quickly.)',
-            '<span class="spanish-text">acostarse</span> — to go to bed: <span class="spanish-text"><strong>Me acuesto</strong> a las diez.</span> (I go to bed at ten.)',
-            '<span class="spanish-text">llamarse</span> — to be called: <span class="spanish-text"><strong>Me llamo</strong> Juan.</span> (My name is Juan.)',
-            '<span class="spanish-text">sentirse</span> — to feel: <span class="spanish-text"><strong>Me siento</strong> bien.</span> (I feel good.)'
+            '<span class="spanish-text">lavarse</span> — to wash oneself: <span class="spanish-text"><strong>Me lavo</strong> las manos.</span> (I wash my hands.)',
+            '<span class="spanish-text">levantarse</span> — to get up: <span class="spanish-text"><strong>Me levanto</strong> temprano.</span> (I get up early.)',
+            '<span class="spanish-text">maquillarse</span> — to put on makeup: <span class="spanish-text"><strong>Me maquillo</strong> antes de salir.</span> (I put on makeup before going out.)',
+            '<span class="spanish-text">peinarse</span> — to comb one\'s hair: <span class="spanish-text"><strong>Me peino</strong> con el peine.</span> (I comb my hair with the comb.)',
+            '<span class="spanish-text">ponerse</span> — to put on (clothing): <span class="spanish-text"><strong>Me pongo</strong> la ropa.</span> (I put on clothes.)',
+            '<span class="spanish-text">quitarse</span> — to take off (clothing): <span class="spanish-text"><strong>Me quito</strong> los zapatos.</span> (I take off my shoes.)',
+            '<span class="spanish-text">vestirse</span> (e→i) — to get dressed: <span class="spanish-text"><strong>Me visto</strong> rápido.</span> (I get dressed quickly.)'
+          ]
+        },
+        {
+          heading: '⚠️ Stem-Changing Reflexives in This Unit:',
+          points: [
+            '<strong>despertarse (e→ie)</strong>: me <strong>despiert</strong>o, te <strong>despiert</strong>as, se <strong>despiert</strong>a, nos despertamos, se <strong>despiert</strong>an',
+            '<strong>vestirse (e→i)</strong>: me <strong>vist</strong>o, te <strong>vist</strong>es, se <strong>vist</strong>e, nos vestimos, se <strong>vist</strong>en',
+            '💡 Remember: stem changes happen in all forms <strong>except</strong> nosotros and vosotros!'
+          ]
+        },
+        {
+          heading: '💡 Pronoun Placement Rules:',
+          points: [
+            '<strong>Before conjugated verb:</strong> <span class="spanish-text"><strong>Me</strong> cepillo los dientes.</span>',
+            '<strong>Attached to infinitive:</strong> <span class="spanish-text">Voy a <strong>cepillarme</strong> los dientes.</span>',
+            '<strong>Attached to gerund:</strong> <span class="spanish-text">Estoy <strong>cepillándome</strong> los dientes.</span>',
+            '💡 Both placements mean the same thing — choose whichever sounds more natural!'
           ]
         }
       ]

@@ -1,6 +1,6 @@
 /* ==========================================================
-   Profesor — AI Spanish Tutor
-   Theme: Professor / Academic + Spanish flag accent colors
+   3rd Hour Spanish — Unidad 2A1 Study Tool
+   Theme: Class-focused + Spanish flag accent colors
    ========================================================== */
 
 /* ---- CSS Variables (Dark Theme Default) ---- */
@@ -96,7 +96,7 @@ body {
   padding: 20px;
   text-align: center;
   border-bottom: 2px solid var(--accent-red);
-  background: linear-gradient(135deg, var(--accent-red) 0%, #8e1a0e 100%);
+  background: linear-gradient(135deg, #c0392b 0%, #e74c3c 50%, #f39c12 100%);
   color: #fff;
 }
 

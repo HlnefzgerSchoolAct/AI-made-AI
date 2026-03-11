@@ -9,7 +9,7 @@ var ChatUI = (function () {
 
   var elements = {};
   var history = [];
-  var onSend = null; // callback(text)
+  var onSend = null;
 
   function init(sendCallback) {
     onSend = sendCallback;
@@ -17,6 +17,8 @@ var ChatUI = (function () {
     elements.input = document.getElementById('chat-input');
     elements.sendBtn = document.getElementById('chat-send');
     elements.quickActions = document.getElementById('quick-actions');
+    elements.welcomeScreen = document.getElementById('welcome-screen');
+    elements.inputArea = document.getElementById('chat-input-area');
 
     elements.sendBtn.addEventListener('click', handleSend);
     elements.input.addEventListener('keydown', function (e) {
@@ -26,7 +28,13 @@ var ChatUI = (function () {
       }
     });
 
-    // Delegate quiz choice button clicks to the chat container
+    // Enable/disable send button based on input content
+    elements.input.addEventListener('input', function () {
+      elements.sendBtn.disabled = !elements.input.value.trim();
+      autoResizeInput();
+    });
+
+    // Delegate quiz choice button clicks
     elements.container.addEventListener('click', function (e) {
       var btn = e.target.closest('.quiz-choice');
       if (btn) {
@@ -43,6 +51,22 @@ var ChatUI = (function () {
           var action = btn.getAttribute('data-action');
           if (action) {
             elements.input.value = action;
+            elements.sendBtn.disabled = false;
+            handleSend();
+          }
+        }
+      });
+    }
+
+    // Welcome card clicks
+    if (elements.welcomeScreen) {
+      elements.welcomeScreen.addEventListener('click', function (e) {
+        var card = e.target.closest('.welcome-card');
+        if (card) {
+          var action = card.getAttribute('data-action');
+          if (action) {
+            elements.input.value = action;
+            elements.sendBtn.disabled = false;
             handleSend();
           }
         }
@@ -52,10 +76,18 @@ var ChatUI = (function () {
     loadHistory();
   }
 
+  function autoResizeInput() {
+    var el = elements.input;
+    el.style.height = 'auto';
+    el.style.height = Math.min(el.scrollHeight, 160) + 'px';
+  }
+
   function handleSend() {
     var text = elements.input.value.trim();
     if (!text) return;
     elements.input.value = '';
+    elements.input.style.height = 'auto';
+    elements.sendBtn.disabled = true;
     elements.input.focus();
     if (onSend) onSend(text);
   }
@@ -64,30 +96,43 @@ var ChatUI = (function () {
     if (onSend) onSend(answer);
   }
 
+  function showChatView() {
+    if (elements.welcomeScreen) {
+      elements.welcomeScreen.classList.add('hidden');
+    }
+    elements.container.classList.add('active');
+  }
+
+  function showWelcomeView() {
+    if (elements.welcomeScreen) {
+      elements.welcomeScreen.classList.remove('hidden');
+    }
+    elements.container.classList.remove('active');
+  }
+
   function createMessageElement(role, html) {
     var wrapper = document.createElement('div');
     wrapper.className = 'message message-' + role;
 
+    var inner = document.createElement('div');
+    inner.className = 'message-inner';
+
     var avatar = document.createElement('div');
     avatar.className = 'message-avatar';
-    avatar.textContent = role === 'bot' ? '�🇸' : '🧑‍🎓';
+    avatar.textContent = role === 'bot' ? 'P' : 'Y';
 
-    var bubble = document.createElement('div');
-    bubble.className = 'message-bubble';
-    bubble.innerHTML = html;
+    var body = document.createElement('div');
+    body.className = 'message-body';
+    body.innerHTML = html;
 
-    if (role === 'bot') {
-      wrapper.appendChild(avatar);
-      wrapper.appendChild(bubble);
-    } else {
-      wrapper.appendChild(bubble);
-      wrapper.appendChild(avatar);
-    }
+    inner.appendChild(avatar);
+    inner.appendChild(body);
+    wrapper.appendChild(inner);
     return wrapper;
   }
 
   function addMessage(role, html) {
-    // role: 'user' | 'bot'
+    showChatView();
     var wrapper = createMessageElement(role, html);
     elements.container.appendChild(wrapper);
     scrollToBottom();
@@ -98,9 +143,21 @@ var ChatUI = (function () {
 
   function showTyping() {
     var el = document.createElement('div');
-    el.className = 'message message-bot typing-indicator';
+    el.className = 'typing-indicator';
     el.id = 'typing-indicator';
-    el.innerHTML = '<div class="message-avatar">�🇸</div><div class="message-bubble"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>';
+    var inner = document.createElement('div');
+    inner.className = 'message-inner';
+    var avatar = document.createElement('div');
+    avatar.className = 'message-avatar';
+    avatar.style.background = 'var(--accent)';
+    avatar.style.color = 'var(--text-on-accent)';
+    avatar.textContent = 'P';
+    var dots = document.createElement('div');
+    dots.className = 'typing-dots';
+    dots.innerHTML = '<span class="dot"></span><span class="dot"></span><span class="dot"></span>';
+    inner.appendChild(avatar);
+    inner.appendChild(dots);
+    el.appendChild(inner);
     elements.container.appendChild(el);
     scrollToBottom();
   }
@@ -118,19 +175,23 @@ var ChatUI = (function () {
     elements.container.innerHTML = '';
     history = [];
     saveHistory();
+    showWelcomeView();
   }
 
   function loadHistory() {
     try {
       var saved = localStorage.getItem(HISTORY_KEY);
       if (saved) {
-        history = JSON.parse(saved);
-        // Restore last 30 messages
-        var start = Math.max(0, history.length - 30);
-        for (var i = start; i < history.length; i++) {
-          addMessageSilent(history[i].role, history[i].html);
+        var parsed = JSON.parse(saved);
+        if (parsed.length > 0) {
+          history = parsed;
+          showChatView();
+          var start = Math.max(0, history.length - 30);
+          for (var i = start; i < history.length; i++) {
+            addMessageSilent(history[i].role, history[i].html);
+          }
+          scrollToBottom();
         }
-        scrollToBottom();
       }
     } catch (e) { /* ignore */ }
   }
@@ -142,10 +203,13 @@ var ChatUI = (function () {
 
   function saveHistory() {
     try {
-      // Keep last 50 messages
       var toSave = history.slice(-50);
       localStorage.setItem(HISTORY_KEY, JSON.stringify(toSave));
     } catch (e) { /* ignore */ }
+  }
+
+  function hasHistory() {
+    return history.length > 0;
   }
 
   return {
@@ -154,6 +218,9 @@ var ChatUI = (function () {
     showTyping: showTyping,
     hideTyping: hideTyping,
     clearChat: clearChat,
-    scrollToBottom: scrollToBottom
+    scrollToBottom: scrollToBottom,
+    hasHistory: hasHistory,
+    showChatView: showChatView,
+    showWelcomeView: showWelcomeView
   };
 })();

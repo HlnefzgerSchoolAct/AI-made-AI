@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profesor — AI Spanish Tutor 🎓🇪🇸</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Sidebar Overlay (mobile) -->
+  <div id="sidebar-overlay"></div>
+
+  <!-- Sidebar -->
+  <aside id="sidebar">
+    <div class="sidebar-header">
+      <h2>🎓 Profesor</h2>
+      <span class="sidebar-subtitle">AI Spanish Tutor</span>
+    </div>
+
+    <!-- Progress -->
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">📊 Your Progress</div>
+      <div id="sidebar-progress"></div>
+    </div>
+
+    <!-- Topic Browser -->
+    <div class="sidebar-section sidebar-topics-section">
+      <div class="sidebar-section-title">📚 Topics</div>
+      <div id="sidebar-topics"></div>
+    </div>
+
+    <!-- Settings Row -->
+    <div class="sidebar-footer">
+      <button id="theme-toggle" class="icon-btn" title="Toggle theme">🌙</button>
+      <button id="clear-chat-btn" class="icon-btn" title="Clear chat">🗑️</button>
+    </div>
+  </aside>
+
+  <!-- Main Chat Area -->
+  <main id="chat-area">
+    <!-- Top bar -->
+    <header id="chat-header">
+      <button id="sidebar-toggle" class="icon-btn" title="Open menu">☰</button>
+      <div class="header-title">
+        <span class="header-avatar">🎓</span>
+        <div>
+          <div class="header-name">Profesor</div>
+          <div class="header-status">AI Spanish Tutor — Online</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Messages -->
+    <div id="chat-messages"></div>
+
+    <!-- Quick Actions -->
+    <div id="quick-actions">
+      <button class="quick-btn" data-action="quiz me">🧠 Quiz Me</button>
+      <button class="quick-btn" data-action="word of the day">🌟 Word of Day</button>
+      <button class="quick-btn" data-action="teach me vocabulary">📋 Vocabulary</button>
+      <button class="quick-btn" data-action="explain grammar">📝 Grammar</button>
+      <button class="quick-btn" data-action="restaurant phrases">💬 Phrases</button>
+      <button class="quick-btn" data-action="help">❓ Help</button>
+      <button class="quick-btn" data-action="learning path">📚 Lessons</button>
+      <button class="quick-btn" data-action="review flashcards">🃏 Flashcards</button>
+    </div>
+
+    <!-- Input Bar -->
+    <div id="chat-input-bar">
+      <textarea id="chat-input" placeholder="Ask me anything about Spanish..." rows="1"></textarea>
+      <button id="chat-send" title="Send">➤</button>
+    </div>
+  </main>
+
+  <!-- Scripts (dependency order) -->
+  <!-- NLP (entity extraction + context for prompts) -->
+  <script src="js/nlp/entities.js"></script>
+  <script src="js/nlp/context.js"></script>
+  <script src="js/nlp/analyzer.js"></script>
+  <!-- Spanish Language Engine -->
+  <script src="js/spanish/dictionary.js"></script>
+  <script src="js/spanish/conjugation.js"></script>
+  <script src="js/spanish/grammar.js"></script>
+  <script src="js/spanish/phrases.js"></script>
+  <!-- Knowledge Base -->
+  <script src="js/knowledge/intents.js"></script>
+  <script src="js/knowledge/responses.js"></script>
+  <!-- Quiz / Progress -->
+  <script src="js/quiz/quiz.js"></script>
+  <script src="js/quiz/progress.js"></script>
+  <!-- Learning -->
+  <script src="js/learning/paths.js"></script>
+  <script src="js/learning/srs.js"></script>
+  <!-- API -->
+  <script src="js/api/config.js"></script>
+  <script src="js/api/client.js"></script>
+  <script src="js/api/prompts.js"></script>
+  <!-- Conversation Manager -->
+  <script src="js/conversation.js"></script>
+  <!-- UI -->
+  <script src="js/ui/chat.js"></script>
+  <script src="js/ui/sidebar.js"></script>
+  <!-- Boot -->
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+name: Deploy Profesor AI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Inject API key into config
+        env:
+          HACKCLUB_API_KEY: ${{ secrets.HACKCLUB_API_KEY }}
+        run: |
+          if [ -n "$HACKCLUB_API_KEY" ]; then
+            sed -i "s|__HACKCLUB_API_KEY__|${HACKCLUB_API_KEY}|g" js/api/config.js
+            echo "API key injected successfully."
+          else
+            echo "Warning: HACKCLUB_API_KEY secret not set. App will use local NLP fallback."
+          fi
+
+      - name: Upload artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
